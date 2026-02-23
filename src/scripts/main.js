@@ -25,8 +25,8 @@ function getEmployees(list) {
 
   return items.map((item) => {
     return {
-      name: item.textContent.trim(),
-      position: item.dataset.position,
+      name: item.querySelector('.name').textContent.trim(),
+      position: item.querySelector('.position').textContent.trim(),
       salary: toNum(item.dataset.salary),
       age: Number(item.dataset.age),
     };
