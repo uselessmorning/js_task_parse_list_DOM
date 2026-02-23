@@ -2,7 +2,7 @@
 
 // write code here
 
-const toNum = (str) => Number(str.replace(/[$,]/g, ''));
+const toNum = (str) => Number(String(str || '').replace(/[$,]/g, ''));
 
 function sortList(list) {
   const items = Array.from(list.children);
@@ -26,7 +26,9 @@ function getEmployees(list) {
   return items.map((item) => {
     return {
       name: item.textContent.trim(),
+      position: item.dataset.position,
       salary: toNum(item.dataset.salary),
+      age: Number(item.dataset.age),
     };
   });
 }
